@@ -3,9 +3,8 @@
 #$2 - расширение для поиска
 #$3 - название папки для бэкапа
 #$4 - имя архива для бэкапа
-cd $1
 mkdir $3
-for var in $(find . -type f -name "*.$2")
+for var in $(find $1 -type f -name "*.$2")
 do 
 	mkdir -p $3/$var
 	cp $var $3/$var
