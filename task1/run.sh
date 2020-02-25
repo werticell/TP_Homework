@@ -4,12 +4,12 @@
 #$3 - название папки для бэкапа
 #$4 - имя архива для бэкапа
 mkdir $3
-cd $3
+count=0
 for var in $(find $1 -type f -name "*.$2")
 do 
-	mkdir -p $var #
-	cp -r $var -t ./$var
+	mkdir $3/newFolderDoesntExist$count
+	cp -r $var $3/newFolderDoesntExist$count
+	count=$((count + 1))
 done
-cd ..
 tar -zcf $4 $3
-echo "done"
+echo "done" 
