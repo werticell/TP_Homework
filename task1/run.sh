@@ -6,7 +6,8 @@
 mkdir $3
 for var in $(find $1 -type f -name "*.$2")
 do 
-	cp $var $3
+	mkdir -p $3/$var
+	cp $var $3/$var
 done
 tar -zcf $4 $3
 echo "done"
