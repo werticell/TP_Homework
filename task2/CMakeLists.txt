@@ -4,7 +4,7 @@ project( myName VERSION 0.0.1 )
 
 execute_process(COMMAND python3 preparing.py WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/A)
 
-add_subdirectory( B )
+add_subdirectory( ${CMAKE_CURRENT_SOURCE_DIR}/B )
 add_executable( C ${CMAKE_CURRENT_SOURCE_DIR}/C/main.cpp )
 
 make_directory( ${CMAKE_CURRENT_SOURCE_DIR}/bin )
