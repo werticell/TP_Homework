@@ -1,5 +1,5 @@
 #include<iostream>
-#include"../B/lib.h"
+#include"B/lib.h"
 #include"main.h"
 
 
