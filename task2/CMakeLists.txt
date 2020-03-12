@@ -18,6 +18,7 @@ include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/A
     ${CMAKE_CURRENT_SOURCE_DIR}/C
+    ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 target_link_libraries( C myLibrary )
