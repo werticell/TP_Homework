@@ -1,6 +1,5 @@
 #include"lib.h"
-#include<iostream>
 
-void seven(){
-    std::cout << "7"; 
+int square(int x) {
+  return x * x;
 }

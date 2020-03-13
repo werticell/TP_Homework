@@ -4,21 +4,24 @@ project( myName VERSION 0.0.1 )
 
 execute_process(COMMAND python3 preparing.py WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/A)
 
-add_subdirectory( ${CMAKE_CURRENT_SOURCE_DIR}/B )
-add_executable( C ${CMAKE_CURRENT_SOURCE_DIR}/C/main.cpp )
+find_package(GTest REQUIRED)
+find_package(Threads REQUIRED)
 
-make_directory( ${CMAKE_CURRENT_SOURCE_DIR}/bin )
-make_directory( ${CMAKE_CURRENT_SOURCE_DIR}/lib )
+add_subdirectory( B )
+
+add_executable( C ${CMAKE_CURRENT_SOURCE_DIR}/C/main.cpp )
+add_executable( CTest 
+                    ${CMAKE_CURRENT_SOURCE_DIR}/C/main_test.cpp 
+                    ${CMAKE_CURRENT_SOURCE_DIR}/C/test.cpp
+                    ${CMAKE_CURRENT_SOURCE_DIR}/C/test.h 
+)
 set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin )
 
 include_directories(
-    C
     PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/B
-    ${CMAKE_CURRENT_BINARY_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}/A
-    ${CMAKE_CURRENT_SOURCE_DIR}/C
     ${CMAKE_CURRENT_SOURCE_DIR}
+    ${GTEST_INCLUDE_DIRS}
 )
 
 target_link_libraries( C myLibrary )
+target_link_libraries( CTest ${GTEST_LIBRARIES} Threads::Threads myLibrary)

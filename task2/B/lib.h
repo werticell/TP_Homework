@@ -1,4 +1,5 @@
 #pragma once
-void seven();
+
+int square(int x);
 
 
