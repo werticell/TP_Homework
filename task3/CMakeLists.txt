@@ -17,7 +17,7 @@ add_executable(MainLib main_lib.cpp)
 target_link_libraries(MainLib buffer)
 
 install(TARGETS MainLib Main 
-    RUNTIME CMAKE_INSTALL_PREFIX/bin
-    LIBRARY CMAKE_INSTALL_PREFIX/lib 
-    ARCHIVE CMAKE_INSTALL_PREFIX/lib
+    RUNTIME CMAKE_INSTALL_PREFIX bin
+    LIBRARY CMAKE_INSTALL_PREFIX lib 
+    ARCHIVE CMAKE_INSTALL_PREFIX lib
 )
