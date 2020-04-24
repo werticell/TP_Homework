@@ -16,6 +16,7 @@ jobs:
 
     - name: Build
       run: |
+        cd task4
         mkdir build
         mkdir 3rdparty
         mkdir output
@@ -29,12 +30,14 @@ jobs:
         
     - uses: akhtyamovpavel/ActionGtestReport@v0.0.9
       with: 
-        exec-path: bin/CTestExe
-        report-path: report.xml
+        exec-path: task4/bin/CTestExe
+        report-path: task4/report.xml
         working-directory: task4
     
     - name: Test
-      run: tar -zcf test-report.tar.gz report.xml
+      run: |
+        cd task4
+        tar -zcf test-report.tar.gz report.xml
   
     - name: UploadArtifacts
       uses: actions/upload-artifact@master
