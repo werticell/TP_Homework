@@ -30,14 +30,12 @@ jobs:
         
     - uses: akhtyamovpavel/ActionGtestReport@v0.0.9
       with: 
-        exec-path: ./task4/bin/CTestExe
-        report-path: ./task4
+        exec-path: ./bin/CTestExe
+        report-path: ./report/report.xml
         working-directory: ./task4
     
     - name: Test
-      run: |
-        cd task4
-        tar -zcf test-report CTestExe.xml
+      run: tar -zcf test-report.tar.gz report
   
     - name: UploadArtifacts
       uses: actions/upload-artifact@master
