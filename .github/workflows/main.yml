@@ -42,9 +42,9 @@ jobs:
       uses: actions/upload-artifact@master
       with: 
         name: distributive
-        path: ./task4/bin/C
+        path: ./task4/bin
     - name: UploadArtifacts
       uses: actions/upload-artifact@master
       with: 
         name: distributive
-        path: ./task4/lib/libClassLib.so
+        path: ./task4/lib
