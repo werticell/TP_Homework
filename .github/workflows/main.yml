@@ -42,5 +42,11 @@ jobs:
       uses: actions/upload-artifact@master
       with: 
         name: Distributive
-        path: ./task4/output
+        path: ./task4/output/exe/bin
+        
+    - name: UploadArtifacts
+      uses: actions/upload-artifact@master
+      with: 
+        name: Distributive
+        path: ./task4/output/exe/lib
 
