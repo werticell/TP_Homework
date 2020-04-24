@@ -31,7 +31,7 @@ jobs:
     - uses: akhtyamovpavel/ActionGtestReport@v0.0.9
       with: 
         exec-path: ./task4/bin/CTestExe
-        report-path: ./task4/report
+        report-path: ./task4
         working-directory: ./task4
     
     - name: Test
