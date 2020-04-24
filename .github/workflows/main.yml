@@ -28,12 +28,16 @@ jobs:
         make
         make install
         
-    - name: Test
-      uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+    - uses: akhtyamovpavel/ActionGtestReport@v0.0.9
       with: 
         exec-path: ./task4/bin/CTestExe
-        report-path: ./task4
+        report-path: ./task4/report
         working-directory: ./task4
+    
+    - name: Test
+      run: |
+        cd task4
+        run: tar -zcf test-report report
   
     - name: UploadArtifacts
       uses: actions/upload-artifact@master
