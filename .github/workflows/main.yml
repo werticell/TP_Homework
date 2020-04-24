@@ -42,5 +42,5 @@ jobs:
       uses: actions/upload-artifact@master
       with: 
         name: Distributive
-        path: ./task4/upload
+        path: ./task4/output
 
