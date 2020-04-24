@@ -31,17 +31,17 @@ jobs:
     - name: Test
       uses: akhtyamovpavel/ActionGtestReport@v0.0.9
       with: 
-        exec-path: bin/CTestExe
-        report-path: ./
-        working-directory: ./
+        exec-path: ./task4/bin/CTestExe
+        report-path: ./task4
+        working-directory: ./task4
   
     - name: UploadArtifacts
       uses: actions/upload-artifact@master
       with: 
         name: Distributive
-        path: bin/C
+        path: ./task4/bin/C
     - name: UploadArtifacts
       uses: actions/upload-artifact@master
       with: 
         name: Distributive
-        path: lib/libClassLib.so
+        path: ./task4/lib/libClassLib.so
