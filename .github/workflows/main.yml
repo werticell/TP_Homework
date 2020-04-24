@@ -16,7 +16,6 @@ jobs:
 
     - name: Build
       run: |
-        cd task4
         mkdir build
         mkdir 3rdparty
         mkdir output
