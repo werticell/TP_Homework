@@ -37,7 +37,7 @@ jobs:
     - name: Test
       run: |
         cd task4
-        run: tar -zcf test-report report
+        tar -zcf test-report report
   
     - name: UploadArtifacts
       uses: actions/upload-artifact@master
