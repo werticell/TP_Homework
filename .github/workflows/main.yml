@@ -27,15 +27,16 @@ jobs:
         GOOGLE_TEST_DIR=googletest cmake -DCMAKE_INSTALL_PREFIX=$MAIN_DIR/output ..
         make
         make install
-        
-    - uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+    
+    - name: Test    
+      uses: akhtyamovpavel/ActionGtestReport@v0.0.9
       with: 
         exec-path: bin/CTestExe
         report-path: report.xml
         working-directory: task4/
     
-    - name: Test
-      run: tar -zcf test-report.tar.gz report.xml
+
+
   
     - name: UploadArtifacts
       uses: actions/upload-artifact@master
