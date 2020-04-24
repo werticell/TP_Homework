@@ -41,10 +41,10 @@ jobs:
     - name: UploadArtifacts
       uses: actions/upload-artifact@master
       with: 
-        name: distributive
+        name: Distributive
         path: ./task4/bin
     - name: UploadArtifacts
       uses: actions/upload-artifact@master
       with: 
-        name: distributive
+        name: Distributive
         path: ./task4/lib
