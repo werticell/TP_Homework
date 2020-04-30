@@ -1,0 +1,49 @@
+name: my_name
+
+
+on: 
+  push:
+    branches: 
+      - master
+      - task4
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  main-job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Build
+      run: |
+        cd task4
+        mkdir build
+        mkdir 3rdparty
+        mkdir output
+        MAIN_DIR=$(pwd)
+        cd 3rdparty
+        git clone https://github.com/google/googletest.git
+        cd ../build
+        GOOGLE_TEST_DIR=googletest cmake -DCMAKE_INSTALL_PREFIX=$MAIN_DIR/output ..
+        make
+        make install
+    
+    - name: Test    
+      uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+      with: 
+        exec-path: bin/CTestExe
+        report-path: report.xml
+        working-directory: task4/
+    
+
+
+    - name: UploadArtifacts
+      uses: actions/upload-artifact@master
+      with: 
+        name: Distributive
+        path: ./task4/output/exe
+        
+
